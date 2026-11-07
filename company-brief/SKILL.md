@@ -1,23 +1,24 @@
 ---
 name: company-brief
-description: Researches any company in depth from its name or URL and delivers a designed PDF brief styled in that company's own colors and type, covering financials, full history, leadership, hiring stats and pay, employee reviews, brand guidelines and assets, advertising, activations, social, videos, podcasts, news, competitors, risks, and exactly how to talk to them in an interview or pitch. Use when someone asks for a company brief, company research or a deep dive on a company, interview prep for a specific company, whether to work for or accept an offer from a company, or how to pitch or approach a company as a client. Usage - /company-brief followed by a company name or URL, optionally "for" a role, optionally "shareable".
+description: Researches any company in depth from its name or URL and delivers a designed PDF brief styled in that company's own colors and type, covering financials, full history, leadership, hiring stats and pay, employee reviews, a brand kit with links to official vector logos and current brand guidelines, advertising, activations, social, videos, podcasts, news, competitors, risks, and exactly how to talk to them in an interview or pitch. Use when someone asks for a company brief, company research or a deep dive on a company, interview prep for a specific company, whether to work for or accept an offer from a company, how to pitch or approach a company as a client, or brand research before designing for or working with a brand for the first time. Usage - /company-brief followed by a company name or URL, optionally "for" a role, optionally "brand kit", optionally "shareable".
 ---
 
 # Company Brief
 
-Turn a company name or URL into a deep, sourced, designed PDF that tells the reader everything they need to walk into an interview, offer conversation, or client pitch: what the company is, how it's doing, who runs it, what working there is like, how its brand and marketing work, who it competes with, and how to talk to it. The PDF uses the company's own colors and type, so it feels like it belongs to them.
+Turn a company name or URL into a deep, sourced, designed PDF that tells the reader everything they need to walk into an interview, offer conversation, client pitch, or first project with a new brand: what the company is, how it's doing, who runs it, what working there is like, how its brand and marketing work, who it competes with, and how to talk to it. The PDF uses the company's own colors and type, so it feels like it belongs to them.
 
 ## Usage
 
 ```
-/company-brief <company name or URL> [for <role>] [shareable]
+/company-brief <company name or URL> [for <role>] [brand kit] [shareable]
 ```
 
-Examples: `/company-brief linear.app`, `/company-brief Figma for Senior Brand Designer`, `/company-brief Notion shareable`. Plain requests work too: "make me a company brief on Notion before my interview."
+Examples: `/company-brief linear.app`, `/company-brief Figma for Senior Brand Designer`, `/company-brief patagonia.com brand kit`, `/company-brief Notion shareable`. Plain requests work too: "make me a company brief on Notion before my interview" or "we just signed Oatly as a client, I need to get up to speed on their brand."
 
 - **Company**: a URL settles identity. A bare name may not (Step 1).
 - **for <role>**: focuses hiring, people to know, and interview prep on that role and its team. Without it, default to design, brand, marketing, and creative leadership, or to whatever the person's background suggests.
 - **Personal mode (default)**: written for the person asking. Use what you know about them (memory, past chats, this conversation, an attached resume or portfolio) for "Your angle", the pitch, and "Fit for you". If there is an offer in hand, add "Before you sign". If you know nothing about them, write those parts generically and offer in the reply to tailor them.
+- **Brand work** ("brand kit", or the person says they're designing for, pitching to, or starting work with the brand as a designer, strategist, agency or in-house partner): the Brand identity and Brand kit sections get the most care, and the kit includes the full asset list and the "Ask the client for" callout (references/brand-extraction.md, section 4). In Part five, "Interview prep" becomes "Kickoff prep" (what the brand team will expect, what to bring, likely questions), "Questions to ask" are for the brand team, and Fit for you and Before you sign are dropped. Keep Hiring to a short paragraph.
 - **Shareable** ("shareable", "for a friend", "to send to someone"): nothing about the person. No "Prepared for" pill, no Fit score, no Before you sign. Part five becomes "How to talk to them" and "Your angle" becomes "Angles that land".
 
 Don't stop to ask questions unless the company's identity is genuinely ambiguous. Start in the first reply: one sentence on what you're doing, the task list, then research.
@@ -47,7 +48,7 @@ Paths below use `${CLAUDE_SKILL_DIR}`. If that text isn't replaced with a real p
 - **Write findings to `research-notes.md` as you go.** Search results get cleared from context in long research. Anything not written down is lost.
 - **Recency**: use today's date; put the year in news searches; mark anything older than 18 months as dated.
 - **People**: public-facing leaders and people relevant to the role, with public professional information only. No personal contact details, home locations, family, or photos of people.
-- **Brand assets**: describe the logo in words and link the official press kit. Don't redraw, trace, or embed logos, mascots, or ad imagery. Color swatches, type specimens, and abstract brand-colored patterns are fine.
+- **Brand assets are links, never copies.** Describe the logo in words and link to the brand's own logo files and guidelines. Don't redraw, trace, embed, or download logos, mascots, fonts, or ad imagery into the brief or the working folder. Prefer the brand's press kit, brand portal or guidelines over third-party logo sites, label which is which, confirm each file's format by opening it, and link the usage terms that govern the files. Color swatches, type specimens, and abstract brand-colored patterns are fine.
 - **Quotes**: employee review excerpts of 25 words or fewer, 4 or fewer in total, attributed to platform and date. Summarize articles; don't paste them.
 - **Label it independent**: the cover says "Independent research brief. Not affiliated with or endorsed by <Company>."
 - **Say what's missing** in one line instead of dropping a section silently.
@@ -63,11 +64,12 @@ Create this task list and tick items off as you finish them:
 3. Read the company's own site and careers pages
 4. Research everything else in parallel batches
 5. Extract brand colors and type; build tokens and fonts
-6. Synthesize: bottom line, scorecard, how to talk to them
-7. Write brief.html
-8. Render and audit
-9. Check facts, links, and layout
-10. Deliver
+6. Build the brand kit: logo files, guidelines, fonts, color specs
+7. Synthesize: bottom line, scorecard, how to talk to them
+8. Write brief.html
+9. Render and audit
+10. Check facts, links, and layout
+11. Deliver
 
 ### 1. Identify
 
@@ -91,7 +93,7 @@ Use the current working directory, or a scratch folder if it isn't writable. Cre
 The live site and careers pages answer a third of the brief and are the most reliable source for mission, values, products, customers, offices, open roles, pay, interview process, social handles, and brand tokens.
 
 - **If you have a browser tool** (Claude in Chrome, an in-app browser, or a cloud browser), use it for the company's domain; approve the whole site once if asked. Read pages as text, not screenshots, except for the logo and hero.
-- Visit, in order: homepage (positioning, customer logos, footer handles and links) → About → Careers (count roles by department and location) → 2–4 postings closest to the target role (pay, interview steps, reporting line, tools) → Press/newsroom (timeline, press kit) → Blog/changelog (last 3 months) → Events → Customers.
+- Visit, in order: homepage (positioning, customer logos, footer handles and links) → About → Careers (count roles by department and location) → 2–4 postings closest to the target role (pay, interview steps, reporting line, tools) → Press/newsroom (timeline, press kit, logo files, brand guidelines) → Blog/changelog (last 3 months) → Events → Customers.
 - Run the brand extraction script on the homepage while you're there (references/brand-extraction.md, section 1).
 - **No browser**: fetch the same pages with the fetch tool.
 - The careers page beats job-board APIs, which are often stale. Use the ATS API list in the playbook only as a fallback.
@@ -121,15 +123,19 @@ python3 "${CLAUDE_SKILL_DIR}/scripts/tokens.py" --brand "#…" --accent "#…" \
 - Proprietary brand font: run the stand-in test in brand-extraction.md section 2 and say in the brief which free font stands in.
 - If npm can't install fonts, use an installed family (`fc-list : family`) and say so in the Type section.
 
-### 6. Synthesize
+### 6. Brand kit
+
+Follow references/brand-extraction.md, section 4. In every mode, find the primary logo as a vector file (SVG, EPS, AI or vector PDF) and the most recent public brand guidelines; in brand-work mode, also fonts, color specs, imagery, templates, boilerplate and usage terms. Send the searches together. For each item record the link, the format you confirmed by opening it, the source (official or third-party), its date, and a status: `Current`, `Dated`, `Outdated`, `Request access`, or `Not found`. Check that the logo file matches the logo on the live site today.
+
+### 7. Synthesize
 
 Read the whole notes file, then decide the bottom line, the three things to know, the scorecard, their language, priorities → talking points, the 30-second pitch, the angle, interview prep, questions to ask, do's and don'ts, before you sign (offer only), and outreach. Guidance for each: references/research-playbook.md section 7.
 
-### 7. Write brief.html
+### 8. Write brief.html
 
 Replace every `{{placeholder}}` in the template, add rows and items as needed, and delete only the sections the template marks as conditional. Markup and writing rules: references/components.md. Keep per-brief CSS small and in the template's override block. Aim for 14–20 pages.
 
-### 8. Render and audit
+### 9. Render and audit
 
 ```bash
 node "${CLAUDE_SKILL_DIR}/scripts/render.cjs" brief.html "<Company>-Company-Brief-<YYYY-MM>.pdf" \
@@ -140,14 +146,14 @@ node "${CLAUDE_SKILL_DIR}/scripts/render.cjs" brief.html "<Company>-Company-Brie
 - Fix every `FAIL` line (font not loaded, text under 4.5:1 contrast, leftover placeholder) and render again.
 - If you're on someone's own computer and nothing renders, ask before installing a renderer (`pip install playwright && python -m playwright install chromium`).
 
-### 9. Check
+### 10. Check
 
 - Layout: `python3 "${CLAUDE_SKILL_DIR}/scripts/contact_sheet.py" <pdf> sheet.png`, then look at the image. The cover is full bleed with no footer; the summary fits on page 2; each part starts a new page; nothing is clipped; no table overflows; no near-empty pages; no heading is stranded at a page bottom. Render a doubtful page larger with `pdftoppm -r 150 -f N -l N -png <pdf> page` and look again.
 - Facts: every number in the PDF matches the notes file, carries a tag, and appears in Sources. Dates are absolute. The other same-name company isn't mixed in.
 - Copy: read references/components.md writing rules once more against the text.
-- Links: open 5 or more Sources links to confirm they resolve.
+- Links: open 5 or more Sources links to confirm they resolve, and open every Brand kit link to confirm it resolves to the format listed.
 
-### 10. Deliver
+### 11. Deliver
 
-- Send the PDF as a file. If the person keeps briefs in a folder on their computer and you can reach it, save it there too.
-- Reply in a few lines: the bottom line in two sentences, the 2–3 sharpest talking points, anything important you couldn't find, and one useful next step (a tailored cover letter, an outreach note, mock interview questions, or a shareable version).
+- Send the PDF as a file. In brand-work mode, also send `<Company>-Brand-Kit.md`: the kit table as plain links, ready to paste into a project doc or channel. If the person keeps briefs in a folder on their computer and you can reach it, save it there too.
+- Reply in a few lines: the bottom line in two sentences, the 2–3 sharpest talking points, anything important you couldn't find, and one useful next step (a tailored cover letter, an outreach note, mock interview questions, a kickoff agenda, or a shareable version). In brand-work mode, say which logo and guideline files you found and what the team will need to request.

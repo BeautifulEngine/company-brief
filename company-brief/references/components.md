@@ -10,9 +10,9 @@ Each `.part` starts on a new page; sections inside a part flow.
 2. **Executive summary** (`.summary`, must fit on page 2): Bottom line, Name check callout if needed, 6 stat tiles, three things to know, scorecard.
 3. **Part one, The company**: At a glance, What they do, Mission/vision/goals, History, Financials.
 4. **Part two, People & culture**: People to know, Hiring, What employees say, Culture & values.
-5. **Part three, Brand & marketing**: Brand identity, Brand assets & who makes them, Advertising & campaigns, Activations & events, Social/video/podcasts, In the news.
+5. **Part three, Brand & marketing**: Brand identity, Brand kit & who makes it, Advertising & campaigns, Activations & events, Social/video/podcasts, In the news.
 6. **Part four, Market & competition**: Market, Competitors, Customers & partners, Risks & red flags.
-7. **Part five, Your play** (shareable: "How to talk to them"): Their language, Priorities → talking points, 30-second pitch, Your angle (shareable: Angles that land), Interview prep, Questions to ask, Do's & don'ts, Before you sign (offer only), Outreach, Sources.
+7. **Part five, Your play** (shareable: "How to talk to them"): Their language, Priorities → talking points, 30-second pitch, Your angle (shareable: Angles that land), Interview prep (brand work: Kickoff prep), Questions to ask, Do's & don'ts, Before you sign (offer only), Outreach, Sources.
 
 Delete a section only when the template says it's conditional. For thin data, keep the section and write one line saying what you looked for.
 
@@ -43,6 +43,10 @@ Delete a section only when the template says it's conditional. For thin data, ke
 <dl class="lingo"><dt>Term</dt><dd>Meaning</dd></dl>
 <ol class="big"><li>Question? <span class="why">Why it matters.</span></li></ol>
 <ol class="sources"><li><a href="…">Title</a> <span class="d">· Outlet · date</span></li></ol>
+
+<!-- brand kit row: link on the asset name; tag shows official vs third-party; status is one of Current, Dated, Outdated, Request access, Not found -->
+<table class="data"><thead><tr><th>Asset</th><th>Format</th><th>Source</th><th>Date</th><th>Status</th></tr></thead>
+<tbody><tr><td><b><a href="…">Primary logo</a></b></td><td>SVG, EPS</td><td>Press kit <span class="tag verified">Official</span></td><td class="num">Mar 2026</td><td>Current</td></tr></tbody></table>
 ```
 
 Utility classes: `.lede` (larger intro paragraph), `.muted`, `.small`, `.avoid-break`.
@@ -58,4 +62,5 @@ Utility classes: `.lede` (larger intro paragraph), `.muted`, `.small`, `.avoid-b
 - Never claim a check you didn't do. If you only read Glassdoor, say "Only Glassdoor was reviewed for this brief."
 - People: titles, public work, and public statements only. No photos, personal contact details, or private life.
 - Personal mode can name the reader's real work; shareable mode names no one but the company's public people.
+- Brand kit: links only, each one opened before delivery, with the format you confirmed. Label third-party files `Third-party` (tag class `reported`) and official ones `Official` (tag class `verified`). Paraphrase guideline rules in one line each.
 - Make every link clickable. Aim for 14–20 pages; don't pad.

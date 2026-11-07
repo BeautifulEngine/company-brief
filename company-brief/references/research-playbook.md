@@ -43,7 +43,7 @@ Visit, in order:
 2. **About / company**: mission (exact wording), founding story, leadership list, investors, live counters (customers, employees).
 3. **Careers**: total open roles; count by department and by location (remote vs. office); values text; benefits; any culture video or handbook link.
 4. **2–4 job postings** nearest the target role (or design, brand, marketing leadership by default): title, location, pay range, hiring manager or reporting line, interview steps, tools, what the first 90 days look like.
-5. **Press / newsroom**: dated announcements for the timeline and news section; press kit or brand assets link.
+5. **Press / newsroom**: dated announcements for the timeline and news section; press kit, logo files, brand guidelines, and the official boilerplate paragraph (brand-extraction.md, section 4).
 6. **Blog / changelog**: the last 3 months of launches and posts; who on the team writes; any rebrand or design post.
 7. **Events / community**: user conference, meetups, webinars, sponsorships (activations section).
 8. **Customers / case studies**: named customers and the outcomes they claim.
@@ -82,7 +82,7 @@ Without a browser: fetch the homepage, About, careers and 2 postings with the fe
 ## 5. Brand and marketing
 
 - **Brand identity**: logo described in words; colors with hex; typefaces and stand-ins; voice (3–4 traits, each with a real line from their site); tagline history; photography, illustration, motion; recent redesigns. Method in brand-extraction.md.
-- **Brand assets**: press or media kit (`/press`, `/newsroom`, `/media`, `/brand`, `/media-kit`), public brand guidelines (search `"<company>" brand guidelines`), design system site, Figma Community files. Link them; don't embed logos.
+- **Brand kit**: official vector logo files, the most recent public brand guidelines, and, in brand-work mode, fonts, color specs, imagery, templates, boilerplate and usage terms. Sources, searches, how to confirm a file's format and recency, and the status labels are in brand-extraction.md, section 4. Link everything; never download or embed logos.
 - **Who made the brand**: in-house brand and design leads and team size (LinkedIn snippets, blog bylines); agency or studio credits (search `"<company>" rebrand`, Behance, Dribbble, Brand New, It's Nice That).
 - **Advertising**: the last 24 months: campaign, date, idea, channels, agency, results. Ad Age, Adweek, The Drum, Campaign, Muse by Clio, LBBOnline, iSpot.tv; Meta Ad Library, Google Ads Transparency Center and LinkedIn Ad Library through a browser for what's running now. If you find no paid brand campaigns, say so; that is a finding.
 - **Activations and events**: owned conferences, pop-ups, stunts, festival and conference presence (SXSW, CES, Cannes Lions, Web Summit, industry shows), sponsorships. Event Marketer, BizBash, the events page, social posts.
@@ -108,7 +108,8 @@ Read the whole notes file before writing. Decide:
 - **Priorities → how to talk about them**: 4–6 current priorities, each with evidence and a line the reader could say.
 - **30-second pitch**: in personal mode, built from the reader's real background; in shareable mode, a fill-in template.
 - **Your angle** (personal mode): specific past work to lead with, and gaps you saw that the reader could offer to fix. Shareable mode: "Angles that land" by background.
-- **Interview prep**: process, likely questions (say what they're inferred from), how to frame answers.
+- **Interview prep**: process, likely questions (say what they're inferred from), how to frame answers. In brand-work mode this is **Kickoff prep**: what the brand team will expect to see, what to bring (references, a point of view on their brand), and the questions they'll likely ask.
+- **Ask the client for** (brand-work mode): the kit gaps turned into a short request list for kickoff (brand-extraction.md, section 4).
 - **Questions to ask**: 8–12, each with a "why" grounded in the research.
 - **Do's and don'ts**: sensitive topics, recent news to be ready for, competitor landmines.
 - **Before you sign** (only with an offer): equity, refreshers, leveling, remote terms, start date, what's typical at this stage. Not legal or financial advice.

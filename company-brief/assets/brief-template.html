@@ -234,10 +234,24 @@
   </section>
 
   <section>
-    <h3><span class="num">11</span>Brand assets &amp; who makes them</h3>
+    <h3><span class="num">11</span>Brand kit &amp; who makes it</h3>
+    <!-- Links only: never embed or download logos, fonts, or brand images. Open every link before delivery. Rows for logo and guidelines are required in every mode; add the others in brand-work mode or when found. Status: Current, Dated, Outdated, Request access, Not found. -->
+    <p class="kpi-note">Links to {{Company}}’s own files where they exist. Use is governed by {{Company}}’s <a href="{{usage terms url}}">{{press, media or trademark terms}}</a>.</p>
+    <table class="data">
+      <thead><tr><th>Asset</th><th>Format</th><th>Source</th><th>Date</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><b><a href="{{url}}">Primary logo</a></b></td><td>{{SVG, EPS, PDF}}</td><td>{{Press kit}} <span class="tag verified">Official</span></td><td class="num">{{Mon YYYY}}</td><td>{{Current}}</td></tr>
+        <tr><td><b><a href="{{url}}">Brand guidelines</a></b></td><td>{{PDF, 48 pp}}</td><td>{{Brand site}} <span class="tag verified">Official</span></td><td class="num">{{Mon YYYY}}</td><td>{{Current | Dated: reason}}</td></tr>
+        <tr><td><b>{{Fonts}}</b></td><td>{{family names}}</td><td>{{foundry or Google Fonts link}}</td><td class="num">—</td><td>{{Commercial license | Free}}</td></tr>
+        <tr><td><b>{{Color specs}}</b></td><td>{{HEX, RGB, CMYK, Pantone}}</td><td>{{guidelines, or site CSS}}</td><td class="num">{{Mon YYYY}}</td><td>{{Current}}</td></tr>
+        <tr><td><b>{{Press images, templates, icons, boilerplate…}}</b></td><td>{{…}}</td><td>{{…}}</td><td class="num">{{…}}</td><td>{{…}}</td></tr>
+      </tbody>
+    </table>
+    <h4>Rules a designer needs</h4>
+    <ul><li>{{clear space, minimum size, color versions, backgrounds, co-branding, main don'ts, paraphrased from the guidelines; or one line saying no public guidelines were found and where you looked}}</li></ul>
+    <!-- brand-work mode only; delete otherwise -->
+    <div class="callout accent"><div class="title">Ask the client for</div><ul><li>{{the gaps above, as a kickoff request list}}</li></ul></div>
     <table class="glance">
-      <tr><th>Press kit</th><td><a href="{{url}}">{{what's in it}}</a></td></tr>
-      <tr><th>Brand guidelines</th><td>{{public URL, or "not public"}}</td></tr>
       <tr><th>In-house team</th><td>{{brand/design leads, team size}}</td></tr>
       <tr><th>Agencies</th><td>{{agency of record, studios, credits}}</td></tr>
     </table>
@@ -350,6 +364,7 @@
   <section>
     <h3><span class="num">24</span>Interview prep</h3>
     <ul>
+      <!-- brand-work mode: retitle this section "Kickoff prep" and cover what the brand team will expect, what to bring, and their likely questions -->
       <li><b>{{Process step or format}}.</b> {{what to expect, from postings or reviews}}</li>
       <li><b>Likely questions</b> (inferred from {{source}}):
         <ul><li>{{question}}</li></ul>

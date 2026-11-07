@@ -2,7 +2,7 @@
 
 `<skill-dir>` below means the company-brief skill folder (the one holding SKILL.md).
 
-Goal: the brand's real colors, type, and look, used two ways: described in the Brand identity section, and applied to the PDF through `scripts/tokens.py` and `scripts/fonts.py`.
+Goal: the brand's real colors, type, and look, used two ways: described in the Brand identity section, and applied to the PDF through `scripts/tokens.py` and `scripts/fonts.py`. Section 4 covers the Brand kit: links to official logo files, brand guidelines, and the other assets creatives ask for.
 
 Sources in order of trust: the live site's CSS (Verified) → official brand guidelines or press kit (Verified) → Brandfetch or a design-press write-up (Reported) → search snippets (Estimate).
 
@@ -46,7 +46,7 @@ Open the homepage and run this in the page. It returns the visible headline's re
 ```
 
 Then:
-- **Logo**: take a screenshot and zoom on the header logo. Describe it in words for the brief: mark shape, wordmark case and typeface style, colors, how it sits on dark and light. Never trace, redraw, or embed it; link the press kit instead.
+- **Logo**: take a screenshot and zoom on the header logo. Describe it in words for the brief: mark shape, wordmark case and typeface style, colors, how it sits on dark and light. Never trace, redraw, or embed it; link the official logo files instead (section 4). Note whether the header logo is an `<img>` with an .svg source or inline SVG markup; section 4 says what to do with each.
 - **Hero art**: if `gradients` is empty but the hero looks like a gradient or photo, zoom a screenshot and name the colors you see, or, if you can save the screenshot as a file, sample it:
   ```python
   from PIL import Image
@@ -121,3 +121,63 @@ python3 "<skill-dir>/scripts/tokens.py" --brand "#141213" --accent "#2EA281" \
 Read the stderr report. Every line should say `ok`; a `WARNING` means pick different colors. Paste `tokens.html` into brief.html at the TOKENS marker.
 
 Put only small, brand-specific touches in the per-brief `<style>` block: an abstract cover pattern from the brand's shapes (dots, grid, stripes, pixels), a dark callout in brand colors, the display size. Keep the base stylesheet unchanged.
+
+## 4. Brand kit: logo files, guidelines, and the assets creatives ask for
+
+Goal: a table of links a designer or strategist can use on day one of a project, plus one line on what to request from the brand. **Links only.** Never download, save, embed, redraw, or trace a logo, font, or brand image into the brief or the working folder. The files belong to the brand and its usage terms govern them.
+
+### Where to look, most trusted first
+
+1. **The brand's own pages.** Footer and header links named Press, Newsroom, Media, Brand, Brand assets, Logos, Media kit, Brand center, Partners, or Developers (developer docs often carry logo and button rules). Paths worth trying on the domain: `/press`, `/newsroom`, `/media`, `/media-kit`, `/press-kit`, `/brand`, `/brand-assets`, `/brand-guidelines`, `/logos`, `/about/press`; subdomains `brand.`, `design.`, `press.`, `newsroom.`, `media.`, `about.`.
+2. **Brand portals the company runs on a platform**: Frontify, Bynder, Brandfolder, Brandpad, Lingo, Corebook, zeroheight. Search `"<company>" brand site:frontify.com`, and the same for the others.
+3. **Design systems and open files**: the company's design system site, its official GitHub org (logo and icon repos), its official Figma Community profile.
+4. **Investor relations and newsroom downloads**: IR sites and press-release pages often carry a logo pack.
+5. **Third-party logo libraries**, only when nothing official is public, and labeled third-party: Wikimedia Commons (open the file page and read its license and trademark notice), Brandfetch, WorldVectorLogo, Seeklogo. These are often outdated or redrawn.
+
+Send these searches together, with the current year where it helps:
+- `"<company>" brand guidelines` · `"<company>" brand guidelines pdf <year>` · `"<company>" brand book`
+- `"<company>" press kit` · `"<company>" media kit logo` · `"<company>" brand assets` · `"<company>" brand center`
+- `"<company>" logo svg` · `"<company>" logo download`
+- `"<company>" design system` · `"<company>" trademark guidelines` · `"<company>" partner marketing guidelines`
+- `"<company>" rebrand <year>` and `"<company>" new logo`, to know which identity is current
+
+### Confirming a logo file
+
+- **Vector** means SVG, EPS, AI, or a vector PDF. An official press-kit ZIP counts when the page lists what's inside. PNG and JPG are raster: list them only as a fallback and label them raster.
+- **Open every link.** An SVG returns markup that starts with `<svg` or `<?xml`; a PDF opens as a document; a ZIP downloads. In a browser, the download name or response type shows the format. Record the format you confirmed, not the one the link text claims.
+- **Match it to today's logo.** Compare the file's mark with the header logo from section 1. A file showing a retired logo is `Outdated`; say which version it shows.
+- **The site's own header logo.** If the extraction found an `<img>` whose `src` ends in `.svg`, that URL is a working vector link on the brand's own domain. List it as official, and note that it's a single web version without clear-space or color variants. Inline `<svg>` markup is not a file: mention that the site draws the logo inline, but don't copy the markup out or save it.
+- **Gated portals** (login, request form, partner-only): link the request page, mark `Request access`, and name the generic contact the page gives (a press or brand team address or form). Never list a person's personal email.
+
+### Brand guidelines
+
+- Prefer the brand's own guideline site or PDF. Record the title, format, page count if shown, the published or "last updated" date (from the page, the cover or first pages, or the PDF's properties), and any version number.
+- **Status**: `Current` when published after the latest identity change and within about three years. `Dated` when older than three years or older than the last rebrand. `Outdated` when it shows a retired logo or palette. Give the reason in a few words.
+- Also look for partner or co-branding rules, a trademark usage page, and developer brand rules (app-store badges, "sign in with" buttons, API attribution). Creatives get asked about these often.
+- Paraphrase the rules a designer needs, one line each: clear space, minimum size, approved color versions, backgrounds, co-branding, the main don'ts. Don't paste pages.
+
+### The rest of the kit
+
+Look for each of these; list what you find and mark the rest `Not found` with where you looked. In default mode, logo and guidelines rows are required and the others are optional. In brand-work mode, cover all of them.
+
+| Asset | What to record |
+|---|---|
+| Logo variants | primary, symbol or icon, horizontal or stacked, one-color, reversed; formats |
+| Color specs | HEX, RGB, CMYK, Pantone from the guidelines; note when only site CSS is available |
+| Fonts | family names, commercial or free, and a link to the foundry, Google Fonts, or the brand's font page; never host or pass along font files |
+| Icons, illustration, patterns | library or Figma file links |
+| Photography and press images | newsroom galleries, product shots, executive photos for press (link only) |
+| Product UI | screenshots, device mockups, app-store badges |
+| Templates | deck, social, email, Figma or Canva kits |
+| Motion and sound | logo animation, sonic logo or audio guidelines |
+| Boilerplate | the official "About <Company>" paragraph from a recent press release, linked, not pasted |
+| Usage terms | the press, media, or trademark terms that govern the files |
+
+### Ask the client for (brand-work mode)
+
+From the gaps in the kit, write one short list of what the team should request at kickoff. Typical items: the master logo package with all variants, the current guidelines (and whether a refresh is underway), font files and license terms for the team's use, the photography library and usage rights, approved templates, product screenshots, legal or trademark review steps, and who approves creative.
+
+### Notes file format
+
+Record each kit item as `- <asset> | <format confirmed> | <official or third-party> | <status> | <source title> | <URL> | <date>`.
+
