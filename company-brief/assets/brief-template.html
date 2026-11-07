@@ -79,6 +79,21 @@
 <div class="score"><div class="k">Fit for you</div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><div class="why">{{what maps, and the gap}}</div></div>
 </div>
 
+<!-- ============ WHAT'S CHANGED (refresh mode only; delete this whole part otherwise) ============ -->
+<div class="part">
+  <div class="part-head"><div class="label">Refresh</div><h2>What’s changed since {{old research date}}</h2></div>
+  <table class="data">
+    <thead><tr><th>Area</th><th>Then</th><th>Now</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td><b>{{Area, e.g. Money, Leadership, Hiring}}</b></td><td>{{old fact · date}}</td><td>{{new fact · date}} <span class="tag verified">Verified</span></td><td>{{one line}}</td></tr>
+    </tbody>
+  </table>
+  <h4>New since last time</h4>
+  <div class="media">
+    <div class="item"><div class="date">{{Mon D, YYYY}}</div><div><div class="t"><a href="{{url}}">{{headline}}</a></div><div class="src">{{outlet}}</div><p>{{one line on why it matters}}</p></div></div>
+  </div>
+</div>
+
 <!-- ============ PART ONE ============ -->
 <div class="part">
   <div class="part-head"><div class="label">Part one</div><h2>The company</h2></div>

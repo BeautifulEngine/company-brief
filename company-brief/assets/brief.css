@@ -226,3 +226,35 @@ dl.lingo dt, dl.lingo dd { break-inside: avoid; padding-bottom: 4pt; border-bott
 .summary .score .why { font-size: 8.3pt; }
 .score .k { font-family: var(--font-label); font-size: 8.4pt; }
 .kpi-note { font-size: 7.6pt; color: var(--muted); margin: -6pt 0 10pt; }
+
+/* ---------- One-page cheat sheet (cheatsheet-template.html) ---------- */
+.sheet-page { font-size: 8.4pt; line-height: 1.38; }
+.sheet-head { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 0 12pt; border-bottom: 3pt solid var(--brand); padding-bottom: 7pt; margin-bottom: 9pt; }
+.sheet-head .kicker { font-family: var(--font-label); font-size: 7.4pt; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 3pt; }
+.sheet-head h1 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); font-size: 24pt; line-height: 1; margin: 0; }
+.sheet-head .meta { text-align: right; font-size: 7.4pt; color: var(--muted); line-height: 1.45; }
+.sheet-page .callout { padding: 8pt 10pt; margin-bottom: 8pt; }
+.sheet-page .callout.big p { font-size: 9.6pt; line-height: 1.42; }
+.sheet-page .stats { grid-template-columns: repeat(6, 1fr); gap: 5pt; margin-bottom: 6pt; }
+.sheet-page .stat { padding: 5pt 6pt; }
+.sheet-page .stat .v { font-size: 12.5pt; }
+.sheet-page .stat .k, .sheet-page .stat .n { font-size: 6.6pt; }
+.sheet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16pt; }
+.sheet-page h4 { font-family: var(--font-label); font-size: 7.4pt; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 8pt 0 3pt; }
+.sheet-page ul, .sheet-page ol { margin-bottom: 4pt; }
+.sheet-page li { margin-bottom: 2pt; }
+.sheet-page .pitch { border-left: 2.5pt solid var(--brand); padding: 1pt 0 1pt 8pt; font-size: 8.8pt; margin-bottom: 4pt; }
+.sheet-page dl.lingo { grid-template-columns: 1.05in 1fr; gap: 2pt 8pt; margin-bottom: 4pt; }
+.sheet-page dl.lingo dt, .sheet-page dl.lingo dd { padding-bottom: 2pt; }
+.sheet-foot { margin-top: 8pt; padding-top: 5pt; border-top: 0.6pt solid var(--rule); font-size: 7pt; color: var(--muted); }
+
+/* ---------- Side-by-side comparison (compare-template.html) ---------- */
+table.vs { width: 100%; border-collapse: collapse; font-size: 8.6pt; line-height: 1.4; margin: 0 0 12pt; }
+table.vs th, table.vs td { text-align: left; vertical-align: top; padding: 5pt 8pt 5pt 0; border-bottom: 0.6pt solid var(--rule); }
+table.vs thead th { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 11pt; padding-top: 6pt; border-top: 4pt solid var(--co, var(--brand)); border-bottom: 0.6pt solid var(--ink); }
+table.vs thead th:first-child { border-top: 0; }
+table.vs tbody th { width: 1.3in; color: var(--muted); font-weight: 600; font-size: 8.4pt; }
+table.vs tr { break-inside: avoid; }
+table.vs td.edge { background: var(--good-soft); }
+.score.vs-score { grid-template-columns: 1.25in 0.85in 0.85in 1fr; }
+.co-dot { display: inline-block; width: 8pt; height: 8pt; border-radius: 50%; background: var(--co); margin-right: 5pt; vertical-align: 0; }

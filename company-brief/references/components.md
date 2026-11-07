@@ -64,3 +64,10 @@ Utility classes: `.lede` (larger intro paragraph), `.muted`, `.small`, `.avoid-b
 - Personal mode can name the reader's real work; shareable mode names no one but the company's public people.
 - Brand kit: links only, each one opened before delivery, with the format you confirmed. Label third-party files `Third-party` (tag class `reported`) and official ones `Official` (tag class `verified`). Paraphrase guideline rules in one line each.
 - Make every link clickable. Aim for 14–20 pages; don't pad.
+
+## Cheat sheet and comparison
+
+- **Cheat sheet** (`assets/cheatsheet-template.html`): one page, made from the finished brief with no new facts. Bottom line, six numbers, three things to know, the pitch (shareable: angles), 3–4 talking points, 4–5 terms, people to know, 4–5 questions, 2–3 risks, one do and one don't. If it spills onto a second page, cut items; don't shrink type below the template's sizes.
+- **Comparison** (`assets/compare-template.html`): neutral tokens; each company's color appears only as `style="--co:#hex"` on its column header and `.co-dot`. Same rows for both companies. Mark the clearly stronger cell with `class="edge"` only when the difference is sourced. Scorecard rows use `.score.vs-score` with two meters.
+- **What's changed** (refresh mode, in brief-template.html after the summary): Then / Now table with dates on both sides, then "New since last time" as `.media` items. Delete the whole part in a normal brief.
+

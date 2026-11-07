@@ -1,27 +1,37 @@
 ---
 name: company-brief
-description: Researches any company in depth from its name or URL and delivers a designed PDF brief styled in that company's own colors and type, covering financials, full history, leadership, hiring stats and pay, employee reviews, a brand kit with links to official vector logos and current brand guidelines, advertising, activations, social, videos, podcasts, news, competitors, risks, and exactly how to talk to them in an interview or pitch. Use when someone asks for a company brief, company research or a deep dive on a company, interview prep for a specific company, whether to work for or accept an offer from a company, how to pitch or approach a company as a client, or brand research before designing for or working with a brand for the first time. Usage - /company-brief followed by a company name or URL, optionally "for" a role, optionally "brand kit", optionally "shareable".
+description: Researches any company from its name or URL and delivers a designed PDF brief in that company's own colors and type, plus a one-page cheat sheet: financials, history, leadership, hiring and pay, employee reviews, a brand kit with links to official logos and brand guidelines, marketing, news, competitors, risks, and how to talk to them. Use when someone asks for a company brief, company research or a deep dive, interview prep for a company, whether to accept an offer, how to pitch a company, or brand research before working with a brand. Also compares two companies or offers side by side, and refreshes an older brief with what changed. Usage - /company-brief followed by a company name or URL, optionally "for" a role, "brand kit", or "shareable"; or "compare A and B"; or "refresh" an existing brief.
 ---
 
 # Company Brief
 
-Turn a company name or URL into a deep, sourced, designed PDF that tells the reader everything they need to walk into an interview, offer conversation, client pitch, or first project with a new brand: what the company is, how it's doing, who runs it, what working there is like, how its brand and marketing work, who it competes with, and how to talk to it. The PDF uses the company's own colors and type, so it feels like it belongs to them.
+Turn a company name or URL into a deep, sourced, designed PDF and a one-page cheat sheet that tells the reader everything they need to walk into an interview, offer conversation, client pitch, or first project with a new brand: what the company is, how it's doing, who runs it, what working there is like, how its brand and marketing work, who it competes with, and how to talk to it. The PDF uses the company's own colors and type, so it feels like it belongs to them.
 
 ## Usage
 
-```
-/company-brief <company name or URL> [for <role>] [brand kit] [shareable]
-```
+People ask in plain words, and every request should work without them learning any syntax. Map what they say onto these modes:
 
-Examples: `/company-brief linear.app`, `/company-brief Figma for Senior Brand Designer`, `/company-brief patagonia.com brand kit`, `/company-brief Notion shareable`. Plain requests work too: "make me a company brief on Notion before my interview" or "we just signed Oatly as a client, I need to get up to speed on their brand."
+| They say | Make |
+|---|---|
+| "Company brief on Figma", `/company-brief linear.app` | A full brief and a one-page cheat sheet |
+| "…for Senior Brand Designer", "I'm interviewing there" | The same, with hiring, people and interview prep focused on that role |
+| "…brand kit", "we just signed Oatly as a client" | Brand-work mode |
+| "…shareable", "for a friend", "to send to my team" | Shareable mode |
+| "Compare Figma and Canva", "help me choose between these two offers" | Compare mode (section below) |
+| "Refresh my Figma brief", "update this brief" with an old PDF attached | Refresh mode (section below) |
+
+Modes combine ("compare Figma and Canva for Senior Brand Designer, shareable").
 
 - **Company**: a URL settles identity. A bare name may not (Step 1).
 - **for <role>**: focuses hiring, people to know, and interview prep on that role and its team. Without it, default to design, brand, marketing, and creative leadership, or to whatever the person's background suggests.
 - **Personal mode (default)**: written for the person asking. Use what you know about them (memory, past chats, this conversation, an attached resume or portfolio) for "Your angle", the pitch, and "Fit for you". If there is an offer in hand, add "Before you sign". If you know nothing about them, write those parts generically and offer in the reply to tailor them.
-- **Brand work** ("brand kit", or the person says they're designing for, pitching to, or starting work with the brand as a designer, strategist, agency or in-house partner): the Brand identity and Brand kit sections get the most care, and the kit includes the full asset list and the "Ask the client for" callout (references/brand-extraction.md, section 4). In Part five, "Interview prep" becomes "Kickoff prep" (what the brand team will expect, what to bring, likely questions), "Questions to ask" are for the brand team, and Fit for you and Before you sign are dropped. Keep Hiring to a short paragraph.
-- **Shareable** ("shareable", "for a friend", "to send to someone"): nothing about the person. No "Prepared for" pill, no Fit score, no Before you sign. Part five becomes "How to talk to them" and "Your angle" becomes "Angles that land".
+- **Brand work**: the Brand identity and Brand kit sections get the most care, and the kit includes the full asset list and the "Ask the client for" callout (references/brand-extraction.md, section 4). In Part five, "Interview prep" becomes "Kickoff prep" (what the brand team will expect, what to bring, likely questions), "Questions to ask" are for the brand team, and Fit for you and Before you sign are dropped. Keep Hiring to a short paragraph.
+- **Shareable**: nothing about the person, in the brief or the cheat sheet. No "Prepared for" pill, no Fit score, no Before you sign. Part five becomes "How to talk to them" and "Your angle" becomes "Angles that land".
 
-Don't stop to ask questions unless the company's identity is genuinely ambiguous. Start in the first reply: one sentence on what you're doing, the task list, then research.
+Keep it easy for the person:
+- Don't stop to ask questions unless the company's identity is genuinely ambiguous, or a refresh can't find the old brief. Pick sensible defaults and say which you picked.
+- Start in the first reply: one sentence on what they'll get (the brief and cheat sheet) and that a full brief takes a while because it reads many sources, then the task list, then research.
+- Finish with the files and a few plain lines, not a tour of the method.
 
 ## Skill files
 
@@ -31,6 +41,8 @@ Paths below use `${CLAUDE_SKILL_DIR}`. If that text isn't replaced with a real p
 |---|---|
 | `assets/brief.css` | Base stylesheet. Copy it; don't edit it. |
 | `assets/brief-template.html` | Skeleton of the whole brief with `{{placeholders}}` |
+| `assets/cheatsheet-template.html` | The one-page cheat sheet that ships with every brief |
+| `assets/compare-template.html` | The side-by-side comparison (compare mode) |
 | `scripts/fonts.py` | Installs free fonts from Fontsource and prints `<link>` tags |
 | `scripts/tokens.py` | Turns brand colors into the token `<style>` block, with contrast fixes |
 | `scripts/render.cjs` | Renders the PDF with Node Playwright and audits fonts, contrast, placeholders |
@@ -66,7 +78,7 @@ Create this task list and tick items off as you finish them:
 5. Extract brand colors and type; build tokens and fonts
 6. Build the brand kit: logo files, guidelines, fonts, color specs
 7. Synthesize: bottom line, scorecard, how to talk to them
-8. Write brief.html
+8. Write brief.html and the cheat sheet
 9. Render and audit
 10. Check facts, links, and layout
 11. Deliver
@@ -131,9 +143,11 @@ Follow references/brand-extraction.md, section 4. In every mode, find the primar
 
 Read the whole notes file, then decide the bottom line, the three things to know, the scorecard, their language, priorities → talking points, the 30-second pitch, the angle, interview prep, questions to ask, do's and don'ts, before you sign (offer only), and outreach. Guidance for each: references/research-playbook.md section 7.
 
-### 8. Write brief.html
+### 8. Write brief.html and the cheat sheet
 
 Replace every `{{placeholder}}` in the template, add rows and items as needed, and delete only the sections the template marks as conditional. Markup and writing rules: references/components.md. Keep per-brief CSS small and in the template's override block. Aim for 14–20 pages.
+
+Then copy `assets/cheatsheet-template.html` to `cheatsheet.html`, paste the same font links and tokens block, and fill it from the finished brief, with no new facts. It must fit on one page: cut list items before shrinking type.
 
 ### 9. Render and audit
 
@@ -141,6 +155,8 @@ Replace every `{{placeholder}}` in the template, add rows and items as needed, a
 node "${CLAUDE_SKILL_DIR}/scripts/render.cjs" brief.html "<Company>-Company-Brief-<YYYY-MM>.pdf" \
   || python3 "${CLAUDE_SKILL_DIR}/scripts/render.py" brief.html "<Company>-Company-Brief-<YYYY-MM>.pdf"
 ```
+
+Render `cheatsheet.html` to `<Company>-Cheat-Sheet-<YYYY-MM>.pdf` the same way, and confirm with `pdfinfo` that it is exactly one page.
 
 - The Node renderer exits with code 2 if Playwright is missing, which triggers the Python one. render.py tries Playwright, then a Chrome binary, then WeasyPrint (`pip install weasyprint`).
 - Fix every `FAIL` line (font not loaded, text under 4.5:1 contrast, leftover placeholder) and render again.
@@ -155,5 +171,28 @@ node "${CLAUDE_SKILL_DIR}/scripts/render.cjs" brief.html "<Company>-Company-Brie
 
 ### 11. Deliver
 
-- Send the PDF as a file. In brand-work mode, also send `<Company>-Brand-Kit.md`: the kit table as plain links, ready to paste into a project doc or channel. If the person keeps briefs in a folder on their computer and you can reach it, save it there too.
+- Send the brief and the cheat sheet as files. In brand-work mode, also send `<Company>-Brand-Kit.md`: the kit table as plain links, ready to paste into a project doc or channel. If the person keeps briefs in a folder on their computer and you can reach it, save it there too.
 - Reply in a few lines: the bottom line in two sentences, the 2–3 sharpest talking points, anything important you couldn't find, and one useful next step (a tailored cover letter, an outreach note, mock interview questions, a kickoff agenda, or a shareable version). In brand-work mode, say which logo and guideline files you found and what the team will need to request.
+
+## Compare two companies
+
+For "compare A and B", "A or B?", or two offers to choose between.
+
+1. Identify both companies (Step 1 for each) and keep notes in `briefs/<a>/` and `briefs/<b>/`. If a brief for either already exists in this conversation or the working folder, reuse its notes.
+2. Research each one at cheat-sheet depth, about 20–30 lookups each: their own site and careers page, money (revenue, growth, funding or market cap), leadership, hiring and pay for the role, employee reviews, culture, the last 12 months of news, risks, and each brand's main color. Use the same rows and the same depth for both, and say when one side has no data.
+3. Make neutral tokens for the comparison (`tokens.py --brand "#1f2430" --accent "#3d4452"`, fonts `Inter`), and use each company's own main color only through `--co` on its column header and dot.
+4. Fill `assets/compare-template.html` as `compare.html`: bottom line, side-by-side table, scorecard, the case for each, and what would settle it. Personal mode adds a Fit row and, with offers in hand, a "Before you decide" table (pay, equity, start date, deadlines, benefits). Shareable mode leaves the person out.
+5. Make a cheat sheet for each company, using its own brand tokens.
+6. Render `<A>-vs-<B>-<YYYY-MM>.pdf` and both cheat sheets, check them as in Step 10, and deliver all three. In the reply, give the deciding factor in two sentences and offer a full brief on either company.
+
+## Refresh a brief
+
+For "refresh", "update" or "what's changed at X" when an older brief exists.
+
+1. Find the old brief: research notes in `briefs/<company-slug>/` (best), an attached PDF (read it with `pdftotext -layout`), or a folder on the person's computer. If you can't find one, say so in one line and make a fresh brief.
+2. Note the old research date and its main facts.
+3. Research what moves: news since that date, money, leadership, hiring and pay, reviews, brand and campaigns, competitors' big moves. Re-open every Brand kit link. Re-check other facts only if they are now older than 18 months.
+4. Update every changed figure with its new source and date; unchanged facts keep their original sources.
+5. Fill the template's "What's changed" part (right after the summary): a Then / Now table and the news since last time. If little changed, say that plainly.
+6. Use today's research date and a new file name, refresh the cheat sheet, render, check, and deliver. In the reply, lead with the three biggest changes.
+
