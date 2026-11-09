@@ -26,4 +26,10 @@ In Claude Code you can also type `/company-brief linear.app`.
 
 A full brief takes a while because it reads many sources. Results are better when Claude has a browser available and when you attach your resume or portfolio link.
 
+Each PDF ends with a small credit line linking back to this skill and to beautifulengine.com. To leave it out, say "no credit line" in your request.
+
+## Made by
+
+Company Brief is made by [Beautiful Engine](https://www.beautifulengine.com), a creative studio in Los Angeles. Questions, ideas, or something broke? [Open an issue](https://github.com/BeautifulEngine/company-brief/issues) or get in touch through [beautifulengine.com](https://www.beautifulengine.com). More skills: [github.com/BeautifulEngine/skills](https://github.com/BeautifulEngine/skills).
+
 The brief links to brand files; it never copies logos or fonts. Those files belong to the brand and its usage terms apply. Briefs are independent research, not affiliated with the company, and not legal or financial advice.

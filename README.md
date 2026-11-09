@@ -2,6 +2,8 @@
 
 A Claude skill for job seekers, designers, marketers, and anyone getting ready to talk to or work with a company. Name a company and Claude researches it, then hands back a designed PDF brief in the company's own colors, a one-page cheat sheet, and links to its official logos and brand guidelines.
 
+Made by Beautiful Engine · [beautifulengine.com](https://www.beautifulengine.com) · [Questions or ideas? Open an issue](https://github.com/BeautifulEngine/company-brief/issues)
+
 ![Pages from a sample Company Brief on Spotify: cover, 60-second summary, brand kit, and how to talk to them](docs/preview-brief.png)
 
 **See real examples:** [Spotify brief (15 pages)](examples/Spotify-Company-Brief-2026-11.pdf) · [Spotify cheat sheet](examples/Spotify-Cheat-Sheet-2026-11.pdf) · [Netflix vs Spotify comparison](examples/Netflix-vs-Spotify-2026-11.pdf)
@@ -44,7 +46,7 @@ Type the slash command, then the company. Add any options after it, in any order
 /company-brief refresh Figma
 ```
 
-Plain-words requests work in Claude Code too.
+If you installed it from the [Beautiful Engine collection](#install-in-claude-code), the command is `/beautiful-engine:company-brief` instead. Plain-words requests work in Claude Code too.
 
 ### Example requests
 
@@ -93,13 +95,24 @@ Every number has a source, a date, and a confidence tag (Verified, Reported, Com
 
 ## What's new
 
-- **Nov 9, 2026:** A how-to-use section with an animated demo, example requests by situation, and follow-ups to try.
+- **Nov 9, 2026:** Claude Code users can install it from the Beautiful Engine skill collection. PDFs now end with a small credit line linking back here. Also a how-to-use section with an animated demo, example requests by situation, and follow-ups to try.
 - **Nov 7, 2026:** Every brief now comes with a one-page cheat sheet. New: compare two companies, refresh an older brief, sample PDFs and previews.
 - **Nov 6, 2026:** Brand kit with links to official vector logos, current brand guidelines, fonts and color specs, plus a brand-work mode for designers and agencies.
 
 **Already installed?** In Claude, go to Customize > Skills, delete the old Company Brief, then upload the new [company-brief.zip](company-brief.zip).
 
 ## Install in Claude Code
+
+**As part of the Beautiful Engine collection** (recommended; you get updates and future skills):
+
+```bash
+claude plugin marketplace add BeautifulEngine/skills
+claude plugin install beautiful-engine@beautiful-engine
+```
+
+Then type `/beautiful-engine:company-brief linear.app`, or ask in plain words.
+
+**On its own:**
 
 ```bash
 git clone https://github.com/BeautifulEngine/company-brief.git
@@ -148,6 +161,16 @@ If you change files in `company-brief/`, rebuild the upload file from the repo r
 ```bash
 rm -f company-brief.zip && zip -r company-brief.zip company-brief -x '*__pycache__*' '*.DS_Store'
 ```
+
+## Made by Beautiful Engine
+
+Company Brief is made by [Beautiful Engine](https://www.beautifulengine.com), a creative studio in Los Angeles working across brand, experiential and interactive design.
+
+- **Website:** [beautifulengine.com](https://www.beautifulengine.com)
+- **Questions, ideas, or something broke?** [Open an issue](https://github.com/BeautifulEngine/company-brief/issues/new) and describe what you asked for and what happened.
+- **More skills:** [BeautifulEngine/skills](https://github.com/BeautifulEngine/skills), the Beautiful Engine skill collection for Claude Code.
+
+Each PDF ends with a small "Made with the free Company Brief skill" line that links back here and to beautifulengine.com, so people you share a brief with can find the skill. To leave it out, add "no credit line" to your request.
 
 ## License
 

@@ -64,6 +64,7 @@ Paths below use `${CLAUDE_SKILL_DIR}`. If that text isn't replaced with a real p
 - **Quotes**: employee review excerpts of 25 words or fewer, 4 or fewer in total, attributed to platform and date. Summarize articles; don't paste them.
 - **Label it independent**: the cover says "Independent research brief. Not affiliated with or endorsed by <Company>."
 - **Say what's missing** in one line instead of dropping a section silently.
+- **Credit line**: the brief, comparison and cheat sheet templates end with a small "Made with the free Company Brief skill for Claude, by Beautiful Engine" line linking to the skill's repo and beautifulengine.com. Keep it in every file, including shareable ones. Leave it out only when the person asks ("no credit line", "remove the Beautiful Engine line"), and then remove it from every file.
 - **Never claim a check you didn't do** ("Only Glassdoor was reviewed for this brief").
 - **Shareable briefs** contain nothing private about the person asking, even if you know it.
 

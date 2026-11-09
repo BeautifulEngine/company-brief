@@ -247,6 +247,8 @@ dl.lingo dt, dl.lingo dd { break-inside: avoid; padding-bottom: 4pt; border-bott
 .sheet-page dl.lingo { grid-template-columns: 1.05in 1fr; gap: 2pt 8pt; margin-bottom: 4pt; }
 .sheet-page dl.lingo dt, .sheet-page dl.lingo dd { padding-bottom: 2pt; }
 .sheet-foot { margin-top: 8pt; padding-top: 5pt; border-top: 0.6pt solid var(--rule); font-size: 7pt; color: var(--muted); }
+.sheet-foot a, .credit a { color: var(--muted); text-decoration: underline; text-underline-offset: 1.5pt; }
+.credit { margin-top: 14pt; padding-top: 6pt; border-top: 0.6pt solid var(--rule); font-size: 7.5pt; color: var(--muted); break-inside: avoid; }
 
 /* ---------- Side-by-side comparison (compare-template.html) ---------- */
 table.vs { width: 100%; border-collapse: collapse; font-size: 8.6pt; line-height: 1.4; margin: 0 0 12pt; }
