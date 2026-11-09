@@ -16,18 +16,65 @@ That's it. Claude finds the skill on its own, and you don't need any special com
 
 > GitHub's green "Code > Download ZIP" button won't work here, because it wraps the files in an extra folder. Use `company-brief.zip`.
 
-## What you can ask
+## How to use it
 
-| Say something like | You get |
-|---|---|
-| "Make me a company brief on Figma." | A full brief and a one-page cheat sheet |
-| "…I'm interviewing for Senior Brand Designer." | The same, with hiring, people and interview prep for that role |
-| "We just signed Oatly as a client. Include a brand kit." | Brand research for a new client: logo files, guidelines, fonts, colors, and what to ask the client for |
-| "Compare Figma and Canva" or "help me choose between these two offers." | A side-by-side comparison, plus a cheat sheet for each |
-| "Refresh my Figma brief." | An updated brief with a "What's changed" page (attach the old PDF if it's from another chat) |
-| Add "shareable" to any request | A version with nothing personal in it, to send to a friend or your team |
+![Animated demo: example requests typed into Claude, each followed by what the skill makes](docs/how-to-ask.gif)
 
-Tips: attach your resume or portfolio link for a sharper "your angle" section, and mention any offer you have. A full brief takes a while because Claude reads dozens of sources; a comparison is quicker.
+### In the Claude app
+
+There's no command to type. Start a new chat and describe what you want in your own words, and Claude matches your request to the skill. Requests like these all work:
+
+- "company brief on…", "deep dive on…", "research … before my interview"
+- "should I take the offer from…", "is … a good place to work?"
+- "compare … and …", "help me choose between these two offers"
+- "brand kit for…", "we just signed … as a client"
+
+If Claude ever answers without making a PDF, start your message with **"Use the company-brief skill:"** and it will.
+
+### In Claude Code
+
+Type the slash command, then the company. Add any options after it, in any order:
+
+```
+/company-brief figma.com
+/company-brief Figma for Senior Brand Designer
+/company-brief Oatly brand kit
+/company-brief notion.so shareable
+/company-brief compare Figma and Canva
+/company-brief refresh Figma
+```
+
+Plain-words requests work in Claude Code too.
+
+### Example requests
+
+| Your situation | Try asking | You get |
+|---|---|---|
+| **Starting a job search** | "Make me a company brief on Figma." | A full brief and a one-page cheat sheet |
+| **Interview coming up** | "Research Linear before my interview for Senior Brand Designer. Here's my resume." | The same, with hiring, people, likely questions, and your angle for that role |
+| **Weighing an offer** | "I have an offer from Ramp for Design Lead. Should I take it?" | The brief, plus a "Before you sign" page on equity, leveling and what to ask |
+| **Choosing between two** | "Help me choose between my offers from Netflix and Spotify." | A side-by-side comparison and a cheat sheet for each company |
+| **New client or brand project** | "We just signed Oatly as a client. Include a brand kit." | Official logo files, brand guidelines, fonts and colors, plus kickoff prep and what to ask the client for |
+| **Pitching a company** | "I'm pitching Patagonia on an experiential campaign. Brief me." | Their priorities, recent campaigns and events, their language, and talking points |
+| **Sending it to someone else** | Add "shareable" to any request | A version with nothing personal in it |
+| **A few weeks later** | "Refresh my Figma brief." | An updated brief with a "What's changed" page (attach the old PDF if it's from another chat) |
+
+You can combine these: *"Compare Figma and Canva for a Senior Brand Designer role, shareable."*
+
+### Tips for a better brief
+
+- **Give a URL** when the name is common ("linear.app" rather than "Linear") so Claude researches the right company.
+- **Attach your resume or portfolio link.** The "your angle" section and the 30-second pitch get specific to you.
+- **Mention the role, and any offer or recruiter** you're talking to. Hiring, people and interview prep focus on that.
+- **Let it take its time.** A full brief reads dozens of sources, including the company's own site and careers page, and finishes with the PDF and cheat sheet in the chat. A comparison is quicker.
+
+### After the brief: follow-ups to try
+
+- "Write me a cover letter using the brief."
+- "Give me 10 mock interview questions and grade my answers."
+- "Turn the talking points into a 30-second intro I can say out loud."
+- "Draft a short note to their Head of Design."
+- "Make a shareable version for my friend who's applying there."
 
 ## What you get
 
@@ -46,12 +93,13 @@ Every number has a source, a date, and a confidence tag (Verified, Reported, Com
 
 ## What's new
 
+- **Nov 9, 2026:** A how-to-use section with an animated demo, example requests by situation, and follow-ups to try.
 - **Nov 7, 2026:** Every brief now comes with a one-page cheat sheet. New: compare two companies, refresh an older brief, sample PDFs and previews.
 - **Nov 6, 2026:** Brand kit with links to official vector logos, current brand guidelines, fonts and color specs, plus a brand-work mode for designers and agencies.
 
 **Already installed?** In Claude, go to Customize > Skills, delete the old Company Brief, then upload the new [company-brief.zip](company-brief.zip).
 
-## Claude Code
+## Install in Claude Code
 
 ```bash
 git clone https://github.com/BeautifulEngine/company-brief.git
